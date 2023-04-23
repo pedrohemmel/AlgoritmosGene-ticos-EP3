@@ -1,28 +1,12 @@
-from tiro import Tiro
-from pop_tiros import PopTiros
-#from geneticos.algoritmo_genetico_individuo import AlgoritmoGeneticoIndividuo
-from geneticos.algoritmo_genetico_populacao import AlgoritmoGeneticoPopulacao
+from populacao import Populacao
+from DadosModel import Dados
+import algGenetico
 
-# individuo = Tiro()
-# genetico = AlgoritmoGeneticoIndividuo(individuo)
+alg = algGenetico.GeneticAlgorithm(Populacao(100))
 
-# print("Primeiro indivíduo:")
-# print(individuo.imprime())
-# print("\n")
+melhor_individuo = alg.run()
 
-# individuo_adaptado = genetico.rodar()
-
-# print("\nPrimeiro mais adaptado:")
-# print(f"Quantidade de gerações: {genetico.qtd_geracoes()}")
-# print(f"Erro: {genetico.erro_final()}")
-# print(individuo_adaptado.imprime())
-
-populacao = PopTiros(Tiro, 10)
-genetico = AlgoritmoGeneticoPopulacao(populacao)
-
-individuo_adaptado = genetico.rodar()
-
-print("\nPrimeiro mais adaptado:")
-print(f"Quantidade de gerações: {genetico.qtd_geracoes()}")
-print(f"Erro: {genetico.erro_final()}")
-print(individuo_adaptado.imprime())
+print(f' Tempo total ' + str(melhor_individuo.tempo))
+print(f' Valor total ' + str(melhor_individuo.valor))
+print(f' Peso total ' + str(melhor_individuo.peso))
+print(f' Rota completa ' + str(melhor_individuo.rota_de_verdade()))
