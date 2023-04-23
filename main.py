@@ -1,6 +1,6 @@
 from populacao import Populacao
-from DadosModel import Dados
 import algGenetico
+from DadosModel import Dados
 
 alg = algGenetico.GeneticAlgorithm(Populacao(100))
 
